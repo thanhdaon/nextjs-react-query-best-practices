@@ -8,6 +8,7 @@ import {
   QuestionMarkCircledIcon,
   StopwatchIcon,
 } from "@radix-ui/react-icons";
+import { Task } from "~/queries/tasks";
 
 export function getStatusIcon(status: string) {
   const statusIcons: Record<string, any> = {
