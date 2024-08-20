@@ -1,6 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { unstable_noStore } from "next/cache";
 import { z } from "zod";
+import { env } from "~/helpers/env";
 import { createPaginationResponseSchema } from "~/queries/helpers";
 import { ColumnFilters, Pagination, Sorting } from "~/queries/types";
 
@@ -50,7 +51,7 @@ async function fetchTasks(inputs: TaskParams) {
     }
   });
 
-  const endpoint = `https://hono-showcase.vercel.app/api/tasks?${params.toString()}`;
+  const endpoint = `${env.NEXT_PUBLIC_API_ENDPOINT}/tasks?${params.toString()}`;
 
   const response = await fetch(endpoint);
 
